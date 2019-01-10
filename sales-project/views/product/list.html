@@ -1,0 +1,68 @@
+<form class="layui-form layui-form-pane" action="" method="post" style="padding-top: 20px">
+{{ .xsrfdata }}
+    <div class="layui-form-item" >
+        <div class=" layui-col-md9">
+            <input type="text" class="layui-input" name="key" placeholder="可输入产品编号，公司名称查询" value="{{.key}}">
+        </div>
+        <div class="layui-col-md3">
+            <button class="layui-btn layui-btn-sm">搜索</button>
+        </div>
+    </div>
+</form>
+<div>
+<table class="layui-table">
+    <thead>
+        <td>ID</td>
+        <td>产品名称</td>
+        <td>产品编码</td>
+        <td>批准文号</td>
+        <td>生产日期</td>
+        <td>生产批号</td>
+        <td>保质期</td>
+        <td>生产厂商</td>
+        <td>操作</td>
+
+    </thead>
+    <tbody>
+        {{range .products}}
+        <tr>
+            <td>{{.Id}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Code}}</td>
+            <td>{{.Approvalnumber}}</td>
+            <td>{{.ProductionDate}}</td>
+            <td>{{.Productionbatch}}</td>
+            <td>{{.ShelfLife}}</td>
+            <td>{{.Manufacturer}}</td>
+            <td><button class="layui-btn layui-btn-sm"><a href="{{urlfor "ProductController.Update"}}?id={{.Id}}">编辑</a></button></td>
+        </tr>
+        {{end}}
+    </tbody>
+</table>
+</div>
+<div id="pages"></div>
+
+
+<script>
+    layui.use(['form','laypage','jquery'],function () {
+        var form = layui.form,
+                $ = layui.$,
+                laypage = layui.laypage;
+
+        laypage.render({
+            elem: 'pages'
+            ,count: {{.pagecount}}
+            ,curr:{{.page}}
+            ,limit:{{.pagelimit}}
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+            ,jump: function(obj, first){
+
+                //首次不执行
+                if(!first){
+                    location.href="{{urlfor "ProductController.List"}}?page="+obj.curr+"&limit="+obj.limit;
+
+                }
+            }
+        });
+    });
+</script>

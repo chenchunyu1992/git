@@ -1,0 +1,68 @@
+<form class="layui-form layui-form-pane" action="" method="post" style="padding-top: 20px">
+{{ .xsrfdata }}
+    <div class="layui-form-item" >
+        <div class=" layui-col-md9">
+            <input type="text" class="layui-input" name="key" placeholder="可输入姓名,电话，地址查询" value="{{.key}}">
+        </div>
+        <div class="layui-col-md3">
+            <button class="layui-btn layui-btn-sm">搜索</button>
+        </div>
+    </div>
+</form>
+
+<div>
+    <table class="layui-table">
+        <thead>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>电话</td>
+            <td>地址</td>
+            <td>邮编</td>
+            <td>标签</td>
+            <td>备注</td>
+            <td>操作</td>
+        </thead>
+        <tbody>
+            {{range .clients}}
+            <tr>
+                <td>{{.id}}</td>
+                <td>{{.name}}</td>
+                <td>{{.phone}}</td>
+                <td>{{.address}}</td>
+                <td>{{.postid}}</td>
+                <td>{{.tag.Name}}</td>
+                <td>{{.remarks}}</td>
+                <td>
+                    <button class="layui-btn layui-btn-sm" onclick="edit()"><a href="{{urlfor "ClientController.Update"}}?id={{.id}}">编辑</a></button>
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
+<div id="pages"></div>
+
+
+<script>
+    layui.use(['form','laypage','jquery'],function () {
+        var form = layui.form,
+                $ = layui.$,
+                laypage = layui.laypage;
+
+        laypage.render({
+            elem: 'pages'
+            ,count: {{.pagecount}}
+            ,curr:{{.page}}
+            ,limit:{{.pagelimit}}
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+            ,jump: function(obj, first){
+
+                //首次不执行
+                if(!first){
+                    location.href="{{urlfor "ClientController.List"}}?page="+obj.curr+"&limit="+obj.limit+"&key="+{{.key}};
+
+                }
+            }
+        });
+    });
+</script>

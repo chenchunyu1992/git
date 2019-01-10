@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/astaxie/beego" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/beego/goyaml2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/beego/x2j" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/belogik/goes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/bradfitz/gomemcache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/cloudflare/golz4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/elazarl/go-bindata-assetfs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/go-redis/redis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/gogo/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/gomodule/redigo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/lib/pq" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/mattn/go-sqlite3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/siddontang/ledisdb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/ssdb/gossdb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models/src/github.com/wendal/errors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/astaxie/beego" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-sqlite3" vcs="Git" />
+  </component>
+</project>

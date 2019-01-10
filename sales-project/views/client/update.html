@@ -1,0 +1,54 @@
+<form class="layui-form layui-form-pane" action="" method="post" style="padding-top: 20px">
+{{ .xsrfdata }}
+    <input type="hidden" name="id" value="{{.client.Id}}">
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">客户名称</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="name" value="{{.client.Name}}">
+        </div>
+    </div>
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">电话号码</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="phone" value="{{.client.Phone}}">
+        </div>
+    </div>
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">客户地址</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="address" value="{{.client.Address}}">
+        </div>
+    </div>
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">邮编号码</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="postid" value="{{.client.Postid}}">
+        </div>
+    </div>
+    <div class="layui-form-item" pane="">
+        <label class="layui-form-label">客户标签</label>
+        <div class="layui-input-block">
+            <select name="tag">
+                <option value="{{.tag.Tag.Id}}" >{{.tag.Tag.Name}}</option>
+            {{range .tags}}
+                <option value="{{.Id}}" >{{.Name}}</option>
+             {{end}}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <textarea name="remarks" class="layui-textarea">{{.client.Remarks}}</textarea>
+        </div>
+    </div>
+    <button type="submit" class="layui-btn layui-btn-normal">更新客户信息</button>
+</form>
+
+
+<script>
+    layui.use(['form'],function () {
+        var form = layui.form;
+
+    });
+</script>
